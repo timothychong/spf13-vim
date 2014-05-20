@@ -1,3 +1,4 @@
+
 " Modeline and Notes {
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
@@ -15,6 +16,18 @@
 "   You can find me at http://spf13.com
 " }
 
+" adding blank line mapping
+:nnoremap <silent> [<space> :pu! _<cr>:'']+1<cr>
+:nnoremap <silent> ]<space> :pu _<cr>:'[-1<cr>]'
+
+ map gn :bn<cr>
+ map gp :bp<cr>
+ map gd :bd<cr>
+ 
+ " another key for right arrow
+ inoremap <C-l> <Right>
+
+nnoremap <buffer> <F8> :!./%<cr>
 " Environment {
 
     " Identify platform {
@@ -288,7 +301,7 @@
         noremap <End> :call WrapRelativeMotion("$")<CR>
         noremap 0 :call WrapRelativeMotion("0")<CR>
         noremap <Home> :call WrapRelativeMotion("0")<CR>
-        noremap ^ :call WrapRelativeMotion("^")<CR>
+        noremap :call WrapRelativeMotion("^")<CR>
         " Overwrite the operator pending $/<End> mappings from above
         " to force inclusive motion with :execute normal!
         onoremap $ v:call WrapRelativeMotion("$")<CR>
@@ -306,7 +319,7 @@
     " bottom of the screen
     " If you prefer that functionality, add the following to your
     " .vimrc.before.local file:
-    "   let g:spf13_no_fastTabs = 1
+    "   eet g:spf13_no_fastTabs = 1
     if !exists('g:spf13_no_fastTabs')
         map <S-H> gT
         map <S-L> gt
@@ -1087,3 +1100,4 @@
         endif
     endif
 " }
+
